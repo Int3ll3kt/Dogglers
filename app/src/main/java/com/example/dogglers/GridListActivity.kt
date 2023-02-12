@@ -30,6 +30,8 @@ class GridListActivity : AppCompatActivity() {
         binding = ActivityGridListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         binding.gridRecyclerView.adapter = DogCardAdapter(
             applicationContext,
             Layout.GRID

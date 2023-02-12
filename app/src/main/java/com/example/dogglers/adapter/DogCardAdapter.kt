@@ -80,6 +80,9 @@ class DogCardAdapter(
         //  R.string.dog_hobbies string constant.
         //  Passing an argument to the string resource looks like:
         //  resources?.getString(R.string.dog_hobbies, dog.hobbies)
-        resources?.getString(R.string.dog_hobbies, dog.hobbies)
+        holder.dogHobby.text = resources?.getString(R.string.dog_hobbies, dog.hobbies )
+
+
+
     }
 }
