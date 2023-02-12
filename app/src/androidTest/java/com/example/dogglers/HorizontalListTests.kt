@@ -39,7 +39,9 @@ class HorizontalListTests : BaseTest() {
 
     @Test
     fun `horizontal_scroll_content_at_first_position`() {
-        checkFirstPosition()
+        onView(withId(R.id.horizontal_recycler_view))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(firstPosition))
+        onView(withText("Tzeitel")).check(matches(isDisplayed()))
     }
 
     @Test

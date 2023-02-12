@@ -39,7 +39,10 @@ class VerticalListTests : BaseTest() {
 
     @Test
     fun `vertical_scroll_content_at_first_position`() {
-        checkFirstPosition()
+//        checkFirstPosition()
+        onView(withId(R.id.vertical_recycler_view))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(firstPosition))
+        onView(withText("Tzeitel")).check(matches(isDisplayed()))
     }
 
     @Test

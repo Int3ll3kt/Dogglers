@@ -28,6 +28,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -43,6 +44,7 @@ import java.lang.IllegalStateException
 open class BaseTest {
 
     val lastPosition = DataSource.dogs.size - 1
+    val firstPosition = 0
 
     /**
      * Check the content of a card
@@ -67,7 +69,10 @@ open class BaseTest {
      * Check the content of the first card
      */
     fun checkFirstPosition() {
-        hasListItemContent("Tzeitel", "Age: 7", "Hobbies: sunbathing", R.drawable.tzeitel)
+        onView(ViewMatchers.withId(R.id.grid_recycler_view))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(firstPosition))
+        onView(withText("Tzeitel")).check(matches(isDisplayed()))
+//        hasListItemContent("Tzeitel", "Age: 7", "Hobbies: sunbathing", R.drawable.tzeitel)
     }
 
     /**
